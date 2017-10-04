@@ -17,9 +17,15 @@ logPerson(john);
 var myApp = angular.module('myApp', []);
 
 // CONTROLLERS
-myApp.controller('mainController', function($scope, $log) {
+myApp.controller('mainController', function($scope, $log, $filter) {
 
-    $scope.name = 'Jane Doe';
+
+
+    $scope.name = 'John';
+    $scope.formattedName = $filter('uppercase')($scope.name);
+
+    $log.info($scope.name);
+    $log.info($scope.formattedName);
     $scope.occupation = 'Coder';
 
     $scope.getName = function() {
