@@ -1,23 +1,23 @@
-// var Person = function(firstname, lastname) {
+var Person = function(firstname, lastname) {
 
-//     this.firstname = firstname;
-//     this.lastname = lastname;
-// }
+    this.firstname = firstname;
+    this.lastname = lastname;
+}
 
-// function logPerson(person) {
-//     console.log(john);
-// }
+function logPerson(person) {
+    console.log(john);
+}
 
-// var john = new Person('John', 'Doe');
+var john = new Person('John', 'Doe');
 
-// logPerson(john);
+logPerson(john);
 
 
 // MODULE
 var myApp = angular.module('myApp', []);
 
 // CONTROLLERS
-myApp.controller('mainController', function($scope) {
+myApp.controller('mainController', function($scope, $log) {
 
     $scope.name = 'Jane Doe';
     $scope.occupation = 'Coder';
@@ -27,6 +27,13 @@ myApp.controller('mainController', function($scope) {
     }
 
     console.log($scope);//simply an object that is being injected in the view by controller
+    console.log($log);//logging object with functions inside
+
+    $log.log('hello!');
+    $log.info('This is some info');
+    $log.warn('Warning!');
+    $log.debug('There was some error');
+    $log.error('This was an error!');
 
 });
 
@@ -39,3 +46,5 @@ var searchPeopleString = searchPeople.toString();
 
 console.log(searchPeople(1,2,3,4,5));
 
+
+console.log(angular.injector().annotate(searchPeople));
